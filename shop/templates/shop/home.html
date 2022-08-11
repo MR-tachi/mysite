@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load humanize %} 
+{% load static %}
+{% block content %}
+
+
+    <!-- Hero Section Begin -->
+    <section class="hero">
+        <div class="hero__slider owl-carousel">
+            <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-1.jpg'%}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-5 col-lg-7 col-md-8">
+                            <div class="hero__text">
+                                <h6>کلکسیون تابستانه</h6>
+                                <h2>بهار و تابستان 1401</h2>
+                                <p>با صندل مجلسی ردا چشم همه را به پای خود بدوزید.</p>
+                                <a href="{% url 'shop'%}" class="primary-btn">همین حالا خرید کن <span class="arrow_right"></span></a>
+                                <div class="hero__social">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-2.jpg'%}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-5 col-lg-7 col-md-8">
+                            <div class="hero__text">
+                                <h6>کلکسیون تابستانه</h6>
+                                <h2>بهار و تابستان 1401</h2>
+                                <p>صندل زنانه فورم ، همون چیزیه که دنبالش میگردی.</p>
+                                <a href="{%url 'shop'%}" class="primary-btn">همین حالا خرید کن <span class="arrow_right"></span></a>
+                                <div class="hero__social">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Banner Section Begin -->
+    <section class="banner spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 offset-lg-4">
+                    <div class="banner__item">
+                        <div class="banner__item__pic">
+                            
+                            <img src="{% static 'img/banner/banner-1.jpg'%}" alt="">
+                        </div>
+                        <div class="banner__item__text">
+                            <h2>کالکشن دمپایی</h2>
+                            <a href="{%url 'shop'%}">خرید</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="banner__item banner__item--middle">
+                        <div class="banner__item__pic">
+                            <img src="{% static 'img/banner/banner-2.jpg'%}" alt="">
+                        </div>
+                        <div class="banner__item__text">
+                            <h2>اکسسوری</h2>
+                            <a href="{%url 'shop'%}">خرید </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="banner__item banner__item--last">
+                        <div class="banner__item__pic">
+                            <img src="{% static 'img/banner/banner-3.jpg'%}" alt="">
+                        </div>
+                        <div class="banner__item__text">
+                            <h2>پیشواز زمستان 1401</h2>
+                            <a href="{%url 'shop'%}">خرید</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner Section End -->
+
+
+    <!-- Product Section Begin -->
+    <section class="product spad"style="direction:rtl;text-align:right;" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="filter__controls">
+                        <li class="active" data-filter="*">Best Sellers</li>
+                        <li data-filter=".new-arrivals">New Arrivals</li>
+                        <li data-filter=".hot-sales">Hot Sales</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row product__filter">
+                {% for item in products %}
+                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
+                    <div class="product__item">
+                        <a href={% url 'detail' item.id %}>
+                            <div class="product__item__pic set-bg" data-setbg="{{item.cover.url}}">
+                                
+                                <!--
+                                    <ul class="product__hover">
+                                        <li><a href="#"><img src="/static/img/icon/heart.png" alt=""><span>Heart</span></a></li>
+                                        <li><a href="#"><img src="/static/img/icon/compare.png" alt=""> <span>Compare</span></a></li>
+                                        <li><a href="#"><img src="/static/img/icon/search.png" alt=""><span>Search</span></a></li>
+                                    </ul>
+                                -->
+                            </div>
+                        </a>
+                            <div class="product__item__text">
+                                <h6>{{item.name}}</h6>
+
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                            <h5>{{item.minPrice| intcomma}} T</h5>
+                            <!--
+
+                                <label for="pc-1">
+                                    <input type="radio" id="pc-1">
+                                </label>
+                                <label class="active black" for="pc-2">
+                                    <input type="radio" id="pc-2">
+                                </label>
+                                <label class="grey" for="pc-3">
+                                    <input type="radio" id="pc-3">
+                                </label>
+                                <div class="product__color__select">
+                                </div>
+                            -->
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Product Section End -->
+
+{% endblock %}
