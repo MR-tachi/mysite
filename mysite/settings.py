@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-6oynm=)!%-n$foihuo)2=uvm-)(bw3wu=u=9u*)mhl5#&dp+7g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mreza.pythonanywhere.com']
+ALLOWED_HOSTS = ['mreza.pythonanywhere.com','127.0.0.1']
 
 
 # Application definition
@@ -114,8 +114,6 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
-
-USE_L10N = True
 
 USE_TZ = True
 
